@@ -12,7 +12,7 @@ Customers earn points based on:
 
 **Example:**  
 A purchase of **$120** yields:
-\[ 2 \times (120 - 100) + 1 \times (100 - 50) = 90 \text{ points} \]
+[ 2*(120 - 100) + 1*(100 - 50) = 90 points ]
 
 ## Features
 
