@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project implements a rewards program for a retailer's customers, allowing the calculation of reward points based on their transactions. The application is built using Spring Boot and adheres to RESTful principles, providing an API for clients to access customer reward information.
+This project implements a rewards program for a retailer's customers, allowing the calculation of reward points based on their transactions. The application uses Spring Boot and adheres to RESTful principles, providing an API for clients to access customer reward information.
 
 ## Requirements
 
@@ -45,8 +45,7 @@ A purchase of **$120** yields:
 1. Get RewardsPoints by CustomerId ->
                    GET - http://localhost:8080/api/customer/rewards/<customer_Id>
 2. Get Rewards Points of All Customers ->
-        GET - http://localhost:8080/api/customer/rewards/?page=0&size=10&sort=customerName,asc
-   or   GET - http://localhost:8080/api/customer/rewards/<customer_Id>
+      GET - http://localhost:8080/api/customer/rewards/
 
 3. Add Customer Details ->
       Request -> {"customerName":"Rahul kumar"}
