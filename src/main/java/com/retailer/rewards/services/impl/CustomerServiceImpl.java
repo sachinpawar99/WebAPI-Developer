@@ -4,7 +4,6 @@ import com.retailer.rewards.entities.Customer;
 import com.retailer.rewards.entities.Transactions;
 import com.retailer.rewards.exceptions.ResourceNotFoundException;
 import com.retailer.rewards.repository.CustomerRepository;
-import com.retailer.rewards.repository.TransactionRepository;
 import com.retailer.rewards.services.CustomerService;
 import com.retailer.rewards.utility.CalculatingRewardsPoints;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,12 +27,8 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public Map<String,Object> getRewardsPointsByCustomerId(Long customerId) {
 
-        Customer customer = customerRepository.findById(customerId).get();
-        if(customer==null)
-        {
-            throw new ResourceNotFoundException("Customer_ID not found","code",customerId);
-
-        }
+        Customer customer = customerRepository.findById(customerId)
+                .orElseThrow(()-> new ResourceNotFoundException("CUSTOMER_ID","NOT_FOUND",customerId));
 
        List<Transactions> transactions = customer.getTransactionsList();
 

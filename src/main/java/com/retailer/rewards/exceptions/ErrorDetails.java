@@ -14,8 +14,8 @@ public class ErrorDetails {
     private String path;
     private String errorCode;
 
-    public String getMessage()
-    {
-       return this.message ="CUSTOMER_ID_NOT_FOUND";
-    }
+//    public String getMessage()
+//    {
+//       return this.message ="CUSTOMER_ID_NOT_FOUND";
+//    }
 }
