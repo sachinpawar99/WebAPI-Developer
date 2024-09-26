@@ -1,5 +1,6 @@
-# Retailer Rewards Program
+# Retailer_Rewards_Program_Design_Documents -> check-in project directory for more information.
 
+### Retailer_Rewards_Program
 ## Overview
 
 This project implements a rewards program for a retailer's customers, allowing the calculation of reward points based on their transactions. The application uses Spring Boot and adheres to RESTful principles, providing an API for clients to access customer reward information.
