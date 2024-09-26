@@ -3,12 +3,11 @@ package com.retailer.rewards.controllers;
 import com.retailer.rewards.entities.Customer;
 import com.retailer.rewards.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -28,9 +27,10 @@ public class CustomerController {
         return new ResponseEntity<>(getRewardPoints,HttpStatus.OK);
     }
 
+    // for this if you want see all customer details so use this.
     @GetMapping
-    public ResponseEntity<Page<Map<String, Object>>> getAllCustomerRewards(Pageable pageable) {
-        Page<Map<String, Object>> customersWithRewardsPoints = customerService.getAllCustomersWithRewards(pageable);
+    public ResponseEntity<List<Map<String, Object>>> getAllCustomerRewards() {
+        List<Map<String, Object>> customersWithRewardsPoints = customerService.getAllCustomersWithRewards();
         return new ResponseEntity<>(customersWithRewardsPoints,HttpStatus.OK);
     }
 }
