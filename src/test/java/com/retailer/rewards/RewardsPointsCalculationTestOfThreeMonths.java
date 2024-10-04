@@ -21,6 +21,11 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
+/**
+ * Unit tests for the {@link RewardsPointsCalculationTestOfThreeMonths} application.
+ * This class contains test methods to verify the functionality of the web API,
+ * specifically related to customer rewards management.
+ */
 @SpringBootTest
 public class RewardsPointsCalculationTestOfThreeMonths {
         @Mock
@@ -31,6 +36,10 @@ public class RewardsPointsCalculationTestOfThreeMonths {
         private CustomerServiceImpl customerService;
         private Customer customer;
 
+        /**
+     * Set up method that is run before each test case.
+     * This method can be used to initialize common resources needed for the tests.
+     */
         @BeforeEach
         public void setUp() {
             MockitoAnnotations.openMocks(this);

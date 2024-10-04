@@ -13,8 +13,18 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * Utility class for calculating total rewards points based on customer transactions.
+ * This class contains methods to compute rewards points from a list of transactions.
+ */
 @Component
 public class CalculatingRewardsPoints {
+    /**
+     * Calculates the total rewards points based on the provided list of transactions.
+     *
+     * @param transactionsList the list of transactions for which rewards points are to be calculated
+     * @return a map containing the total rewards points and any other relevant information
+     */
     public Map<String, Object> getTotalRewardsPoints(List<Transactions> transactionsList) {
 
         List<Transactions> filteredTransactions = filterRecentTransactions(transactionsList);
@@ -66,6 +76,9 @@ public class CalculatingRewardsPoints {
         return totalPointCalculation;
     }
 
+    /*
+    * Calculating rewards point below method.
+    */
     private int calculatingPoints(double amount) {
         int points = 0;
 

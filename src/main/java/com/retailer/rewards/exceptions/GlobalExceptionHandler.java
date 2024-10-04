@@ -10,8 +10,16 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import java.time.LocalDateTime;
 
+/**
+ * Global exception handler for the application.
+ * This class handles exceptions thrown by controllers and generates
+ * appropriate HTTP response messages with error details.
+ */
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
+    /**
+     * Handles ResourceNotFoundException and returns a 404 NOT FOUND response.
+     **/
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ErrorDetails> resourceNotFoundException(ResourceNotFoundException
                                                                           exception, WebRequest webRequest) {
@@ -23,6 +31,9 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
 
     }
+    /**
+     * Handles BadRequestException and returns a 400 BAD REQUEST response.
+     **/
     @ExceptionHandler(BadRequestException.class)
     public ResponseEntity<ErrorDetails> handleBadRequestException(BadRequestException exception, WebRequest webRequest) {
         ErrorDetails errorDetails = new ErrorDetails(
@@ -32,7 +43,13 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                 "BAD_REQUEST" );
         return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
     }
-
+    /**
+     * Handles DataIntegrityViolationException and returns a 409 CONFLICT response.
+     *
+     * @param exception the DataIntegrityViolationException thrown
+     * @param webRequest the current web request
+     * @return ResponseEntity containing error details and HTTP status code CONFLICT
+     */
     @ExceptionHandler(DataIntegrityViolationException.class)
     public ResponseEntity<ErrorDetails> handleDataIntegrityViolationException(DataIntegrityViolationException exception, WebRequest webRequest) {
         ErrorDetails errorDetails = new ErrorDetails(
@@ -43,6 +60,13 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(errorDetails, HttpStatus.CONFLICT);
 
     }
+    /**
+     * Handles any other exceptions and returns a 500 INTERNAL SERVER ERROR response.
+     *
+     * @param exception the Exception thrown
+     * @param webRequest the current web request
+     * @return ResponseEntity containing error details and HTTP status code INTERNAL SERVER ERROR
+     */
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorDetails> handleGlobalException(Exception exception,
                                                               WebRequest webRequest) {

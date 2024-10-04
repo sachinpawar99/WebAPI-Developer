@@ -18,6 +18,11 @@ import java.util.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
+/**
+ * Unit tests for the {@link WebApiDeveloperApplication} application.
+ * This class contains test methods to verify the functionality of the web API,
+ * specifically related to customer rewards management.
+ */
 @SpringBootTest
 class WebApiDeveloperApplicationTests {
 	@Mock
@@ -27,6 +32,11 @@ class WebApiDeveloperApplicationTests {
 	@InjectMocks
 	private CustomerServiceImpl customerService;
 	private List<Customer> customerList;
+
+	/**
+	 * Set up method that is run before each test case.
+	 * This method can be used to initialize common resources needed for the tests.
+	 */
 	@BeforeEach
 	public void setUp() {
 		MockitoAnnotations.openMocks(this);
@@ -54,6 +64,11 @@ class WebApiDeveloperApplicationTests {
 		customerList.add(customer2);
 	}
 
+	/**
+	 * Test method for verifying the retrieval of all customers with their rewards.
+	 * This test checks that the API correctly returns a list of all customers
+	 * along with their associated rewards points.
+	 */
 	@Test
 	public void testGetAllCustomersWithRewards() {
 		when(customerRepository.findAll()).thenReturn(customerList);
