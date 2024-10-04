@@ -1,4 +1,7 @@
-# Retailer Rewards Program
+# Retailer_Rewards_Program
+
+### Retailer_Rewards_Program_Design_Documents -> check-in project directory for more information.
+
 
 ## Overview
 
